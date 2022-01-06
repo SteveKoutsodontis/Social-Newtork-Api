@@ -3,7 +3,12 @@ const { Schema, model } = require('mongoose');
 const userSchema = new Schema(
   {
     // TODO: create username field
-
+    username: {
+      type: String,
+      unique: true,
+      required: true,
+      
+    }
     // TODO: create email field
     
     thoughts: [

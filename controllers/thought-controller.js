@@ -3,26 +3,63 @@ const { Thought, User } = require('../models');
 const thoughtController = {
   // get all thoughts
   getThoughts(req, res) {
-    // TODO: Your code here
-
+    Thought.find()
+      .sort({ createdAt: -1 })
+      .then((dbThoughtData) => {
+        res.json(dbThoughtData)
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
   },
   
   // get single thought by id
   getSingleThought(req, res) {
-    // TODO: Your code
-
+    Thought.findOne({_id: req.params.thoughtId})
+    .then((dbThoughtData) => {
+      res.json(dbThoughtData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
   },
 
   // create a thought
   createThought(req, res) {
-    // TODO: create a thought and add the thought to user's thoughts array
-
+    Thought.create(req.body)
+      .then((dbThoughtData) => {
+        res.json(dbThoughtData);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
   },
 
   // update thought
   updateThought(req, res) {
-    // TODO: update thought
-
+    Thought.findOneAndUpdate(
+      { _id: req.params.thoughtId },
+      {
+        $set: req.body,
+      },
+      {
+        runValidators: true,
+        new: true,
+      }
+    )
+      .then((dbThoughtData) => {
+        if (!dbThoughtData) {
+          return res.status(404).json({ message: 'No thought from this id!' });
+        }
+        res.json(dbThoughtData);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
   },
 
   // delete thought
