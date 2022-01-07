@@ -7,7 +7,7 @@ const userSchema = new Schema(
       type: String,
       unique: true,
       required: true,
-      trimmed: true // ask about trimmed
+      trim: true // ask about trimmed
     },
     // TODO: create email field
     email: {

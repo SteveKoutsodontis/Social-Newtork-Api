@@ -1,4 +1,5 @@
 const { Thought, User } = require('../models');
+const reactionSchema = require('../models/Reaction');
 
 const thoughtController = {
   // get all thoughts
@@ -92,13 +93,28 @@ const thoughtController = {
   // add a reaction to a thought
   addReaction(req, res) {
     //  TODO: add reaction to thought's reaction array
+    Thought.
 
   },
 
   // remove reaction from a thought
   removeReaction(req, res) {
     // TODO: remove reaction from thoughts
+    Thought.findOneAndDelete({ _id: req.params.reactionId })
+    .then((dbThoughtData) => {
+      if (!dbThoughtData) {
+        return res.status(404).json({ message: 'No reaction with this id!' });
+      }
 
+      return Thought.deleteOne({ _id: { $in: dbThoughtData.thoughts } });
+    })
+    .then(() => {
+      res.json({ message: 'Reaction Removed' });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
   },
 };
 
