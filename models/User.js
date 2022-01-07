@@ -7,10 +7,17 @@ const userSchema = new Schema(
       type: String,
       unique: true,
       required: true,
-      
-    }
+      trimmed: true // ask about trimmed
+    },
     // TODO: create email field
-    
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      validate: {
+        isEmail: true  // might be correct
+      },
+    },
     thoughts: [
       {
         type: Schema.Types.ObjectId,
