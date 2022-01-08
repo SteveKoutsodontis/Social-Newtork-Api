@@ -7,7 +7,7 @@ const userSchema = new Schema(
       type: String,
       unique: true,
       required: true,
-      trim: true // ask about trimmed
+      trimmed: true 
     },
     // TODO: create email field
     email: {
@@ -15,7 +15,10 @@ const userSchema = new Schema(
       required: true,
       unique: true,
       validate: {
-        isEmail: true  // might be correct
+        validator: function (v) {
+          return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v);
+        },
+        message: "Email entered incorrectly please provide a correct Email."
       },
     },
     thoughts: [
