@@ -1,10 +1,13 @@
 # Social-Newtork-Api
 ## Author 
-- [@SteveKoutsodontis](https://github.com/SteveKoutsodontis)
+- [Steve Koutsodontis](https://github.com/SteveKoutsodontis)
+* The above link is to my github to see my other work.
 
 ## Description
-* 
 
+* Social Network Api is an API for a social network application. Users can share thoughts and react to friends thoughts. Also users are able to make a friends list.
+* Things have been made easier to use when using this API through Insomnia and Mongo Compass
+* Using 3 different models Users, Friends and Thoughts. In this Models you can use GET, PUT, POST and DELETE. Except for the Friends and Reactions you can only POST and Delete.
 
 ## Built With 
 
@@ -12,6 +15,9 @@
 * JavaScript
 * Insomnia
 * MongoDb
+* Mongoose
+* Express
+* Node .js
 
 
 ## Installation Instructions
@@ -24,14 +30,12 @@ If you want to edit applcation you must have a Github account, download Visual S
 
 Clone the Github project.
 
-To install packages dependencies in package.json, open a console in the correct directory and enter: npm i
+To Run: npm start
 
-## Usage 
-Click link to run application: []()
+## Video Tutorial
+* Include is a video demonstration showing how each process works through Insomnia.
 
-## Screen Shots
-
-![Screenshot]()
+[Link to Video]()
 
 ### License: 
  

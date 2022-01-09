@@ -18,7 +18,7 @@ const userSchema = new Schema(
         validator: function (v) {
           return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v);
         },
-        message: "Email entered incorrectly please provide a correct Email."
+        message: "Email entered incorrectly please provide a valid Email."
       },
     },
     thoughts: [
