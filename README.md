@@ -33,9 +33,9 @@ Clone the Github project.
 To Run: npm start
 
 ## Video Tutorial
-* Include is a video demonstration showing how each process works through Insomnia.
+* Included is a video demonstration showing how each process works through Insomnia.
 
-[Link to Video]()
+[Link to Video](https://drive.google.com/file/d/1k8fGkjDnU4fbkEbMn1afEJRAsYAnND1W/view?usp=sharing)
 
 ### License: 
  
