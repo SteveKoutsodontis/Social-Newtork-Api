@@ -80,7 +80,7 @@ const thoughtController = {
       })
       .then((dbUserData) => {
         if (!dbUserData) {
-          return res.status(404).json({ message: 'Thought created but no user with this id!' });
+          return res.status(404).json({ message: 'Thought Deleted Successfully!' });
         }
         res.json({ message: 'Thought successfully deleted!' });
       })
@@ -117,15 +117,15 @@ const thoughtController = {
       { runValidators: true, new: true }
     )
       .then((thought) =>
-!thought
-  ? res
-    .status(404)
-    .json({ message: 'No reaction found with that id!' })
-  : res.json(thought)
-  )
-  .catch ((err) => res.status(500).json(err));
+        !thought
+          ? res
+            .status(404)
+            .json({ message: 'No reaction found with that id!' })
+          : res.json(thought)
+      )
+      .catch((err) => res.status(500).json(err));
 
-    }
+  }
 };
 
 module.exports = thoughtController;
